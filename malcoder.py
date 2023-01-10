@@ -3,7 +3,7 @@ import subprocess
 import shlex
 import base64
 
-print("\nEnter shellcodes or other commands")
+print("\nEnter shellcodes or other scripts")
 print("\nto generate a payload that should")
 print("\nget past some antivirus scanners.")
 print("\nDo not upload to Virus Total.")
@@ -34,7 +34,7 @@ execute(payload_decoded)
 '''
 
 elif choice == "script":
-    path = input("Enter the path to the script: ")
+    path = input("\nEnter the path to the script: ")
     thefile = open(path, "rb")
     data = thefile.read()
     payload_encoded = base64.b64encode(data)
